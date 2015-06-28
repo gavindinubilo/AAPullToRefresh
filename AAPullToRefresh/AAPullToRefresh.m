@@ -494,4 +494,17 @@
     
 }
 
+-(void) dealloc
+{
+    @try
+    {
+        [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+        [self.scrollView removeObserver:self forKeyPath:@"contentSize"];
+        [self.scrollView removeObserver:self forKeyPath:@"frame"];
+    }
+    @catch (NSException *exception)
+    { 
+    }
+}
+
 @end
